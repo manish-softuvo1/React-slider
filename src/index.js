@@ -13,7 +13,7 @@ const App = () => {
                 <button type="button" onClick={() => value === 0 ? setValue(data.length - 1) : setValue(value - 1)}>
                     <img src="./assets/images/left-arrow.png" alt="left-arrow" />
                 </button>
-                <button type="button" onClick={() => value === (data.length - 1) ? setValue(0) : setValue(value + 1)}>
+                <button className="btn-right" type="button" onClick={() => value === (data.length - 1) ? setValue(0) : setValue(value + 1)}>
                     <img src="./assets/images/right-arrow.png" alt="right-arrow" />
                 </button>
             </div>
