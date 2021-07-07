@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { data } from './fakeDB/data.js';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+    const [ value, setValue ] = useState(0);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    return(
+        <div className= "container">
+            <img src = { data[value].image } alt={ data[value].id } />
+            <h2>{ data[value].name}</h2>
+            <div className= "slider-actions">
+                <button type="button" onClick={() => value === 0 ? setValue(data.length - 1) : setValue(value - 1)}>
+                    <img src="./assets/images/left-arrow.png" alt="left-arrow" />
+                </button>
+                <button type="button" onClick={() => value === (data.length - 1) ? setValue(0) : setValue(value + 1)}>
+                    <img src="./assets/images/right-arrow.png" alt="right-arrow" />
+                </button>
+            </div>
+        </div>
+    );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
