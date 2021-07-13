@@ -47,7 +47,6 @@ class ImageList extends React.Component {
         fadedright: true
     });
     }
-    
     this.setState({
       fadedleft: false
     }); 
@@ -56,8 +55,8 @@ class ImageList extends React.Component {
   render() {
     var startindex = this.state.start;
     var finishindex = this.state.finish;
-    const fadedleft = this.state.fadedleft  ? "arrow-left faded-left" : "arrow-left"; 
-    const fadedright = this.state.fadedright  ? "arrow-right faded-right" : "arrow-right";
+    const fadedleft = this.state.fadedleft || startindex <= 0  ? "arrow-left faded-left" : "arrow-left"; 
+    const fadedright = this.state.fadedright || finishindex >= images.length ? "arrow-right faded-right" : "arrow-right";
     const boxWidth = Math.floor(100/slideToShow)
     
     return (
@@ -65,7 +64,6 @@ class ImageList extends React.Component {
         <div className="slide-main">
           <div className="slides-outer">
             <div className="slideshow row col">
-           
               {this.state.images
                 .slice(startindex, finishindex)
                 .map((image, imageIndex) => {
@@ -92,13 +90,3 @@ class ImageList extends React.Component {
   };
   
 export default  ImageList;
-              
-
-
-         
-         
-                
-               
-
-
-
