@@ -1,83 +1,120 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+body, html {
+  height: 100%;
+  margin:0;
+  padding:0;
+  background-color: #3a003aa6;
 }
 
-  body {
-    display: flex;
+.container{
+  max-width: 1140px;
+  margin: auto;
+}
+.slideshow {
+  display: flex;
+  align-content: center;
+  /* justify-content: space-between; */
+  height: 100%;
+  padding: 2em;
+  background-color: #ffffff;
+  margin: 2em auto;
+  border-radius: 10px;
+}
+
+.slideshow .arrow-left,.slideshow  .arrow-right  {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  width: auto;
+  height:0;
+  padding:0;
+  margin: 0.5em 1em;
+  cursor: pointer;
+  align-self: center;
+}
+.arrow-left {
+  left: -5px;
+  border-top: 20px solid transparent;
+  border-right: 22px solid #3A003A;
+  border-bottom: 20px solid transparent;
+}
+
+.arrow-right {
+  right: -5px;
+  border-top: 20px solid transparent;
+  border-left: 22px solid #3A003A;
+  border-bottom: 20px solid transparent;
+}
+
+.faded-left {
+  border-right: 22px  solid #FFCFFF;
+}
+
+.faded-right {
+  border-left: 22px  solid #FFCFFF;
+}
+@keyframes appear {
+  0% {
+    opacity: 0.01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.slide-main{
+  position: relative;
+  height: 100vh;
+  display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-  }
+}
+.slides-outer{
+  width: 100%;
+}
 
-  .container {
-    width: 500px;
-    max-width: 500px;
-    height: 350px;
-    background: rgb(29, 28, 28);
-    color: white;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-  }
+.slide-img{
+  /* width: 100%; */
+  height: 340px;
+  margin: 0 10px;
+  padding: 15px;
+  display: inline-block;
+  box-shadow: 0px 0px 10px #ddd;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto 0.1em;
+  border-radius: 5px;
+  animation: appear 1.5s ease-in;
+}
 
-  .container img {
-    width: 200px;
-    height: 190px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
 
-  .container .slider-actions img {
-    width: 100%;
-    height: auto;
-    max-width: 20px;
+@media screen and (max-width: 1200px) {
+  .slideshow {
+    padding-right: 0;
+    padding-left: 0;
   }
-  .container {
-    position: relative;
+  .arrow-left {
+    border-top: 1.5em solid transparent;
+    border-right: 1.5em solid #3A003A;
+    border-bottom: 1.5em solid transparent;
   }
-  .container .slider-actions {
-    width: 100%;
-    position: absolute;
+  .arrow-right {
+    border-top: 1.5em solid transparent;
+    border-left: 1.5em solid #3A003A;
+    border-bottom: 1.5em solid transparent;
   }
-  .container .slider-actions .btn-right {
-    float: right;
-  }
+  /* .image {
+    width: 100px;
+    height: 70px;
+  } */
+}
 
-  h2 {
-    text-transform: capitalize;
-    margin-top: 10px;
-    font-weight: 800;
-  }
-
-  h3 {
-    text-transform: capitalize;
-    color: rgb(197, 194, 194);
-  }
-
-  .container div {
-    margin-top: 15px;
-  }
-
-  .container div button {
-    cursor: pointer;
-    margin: 0 10px;
-    padding: 13px 10px;
-    border-radius: 50%;
-    font-weight: 800;
-    font-size: 19px;
-    border: none;
-    outline: none;
-    text-align: center;
-    width: 45px;
-    height: 45px;
-  }
-
-  button:active {
-    transform: scale(1.03);
-  }
+@media screen and (max-width: 630px) {
+  /* .image {
+    width: 60px;
+    height: 50px;
+  } */
+}
